@@ -35,6 +35,12 @@ def save_chat_history():
     with open(CHAT_HISTORY_FILE, "w") as file:
         json.dump(st.session_state.history, file)
 
+# Function to clear chat history
+def clear_history():
+    st.session_state.history = []  # Reset the session state
+    if os.path.exists(CHAT_HISTORY_FILE):  # Delete the history file if it exists
+        os.remove(CHAT_HISTORY_FILE)
+
 # Create tabs in Streamlit
 tabs = st.tabs(["Chatbot"])
 
@@ -88,6 +94,11 @@ def main():
     with st.sidebar:
         st.image("./devhub.png", width=250)  # Display the logo in the sidebar
         st.write("### Chat History")
+        
+        # Add "Delete History" button
+        if st.button("Delete History", key="delete_history", help="Clear all chat history"):
+            clear_history()
+            st.write("Chat history cleared!")
 
     with tabs[0]:  # Access the first (and only) tab
         st.header("Developers Assistant")
