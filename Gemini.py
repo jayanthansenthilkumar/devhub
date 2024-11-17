@@ -90,7 +90,7 @@ def main():
         st.write("### Chat History")
 
     with tabs[0]:  # Access the first (and only) tab
-        st.header("Interact with Chatbot")
+        st.header("Developers Assistant")
         st.write("")
 
         # Text area for prompt input with custom CSS class
