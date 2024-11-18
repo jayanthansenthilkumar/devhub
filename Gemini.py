@@ -89,7 +89,7 @@ def add_custom_css():
 def main():
     # Add custom CSS for styling
     add_custom_css()
-
+    st.title("Devbot")
     # Move the logo to the sidebar header
     with st.sidebar:
         st.image("./devhub.png", width=250)  # Display the logo in the sidebar
